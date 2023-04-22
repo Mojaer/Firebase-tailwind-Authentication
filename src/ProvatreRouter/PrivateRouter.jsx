@@ -3,7 +3,10 @@ import { authContext } from '../Context/AuthProvider';
 import { Navigate } from 'react-router-dom';
 
 const PrivateRouter = ({ children }) => {
-    const { user } = useContext(authContext)
+    const { user, loading } = useContext(authContext)
+    if (loading) {
+        return <progress className="progress w-56"></progress>
+    }
     if (user) {
         return children
     }

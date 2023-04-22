@@ -9,6 +9,7 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
 
 
     const createUser = (email, password) => {
@@ -23,7 +24,7 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
     }
     const authInfo = {
-        user,
+        user, loading,
         createUser,
         loginUser,
         logOut
@@ -33,6 +34,7 @@ const AuthProvider = ({ children }) => {
         const connections = onAuthStateChanged(auth, currentUser => {
             // console.log(currentUser);
             setUser(currentUser);
+            setLoading(false);
         });
         return () => {
             connections();
