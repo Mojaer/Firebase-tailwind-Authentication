@@ -6,7 +6,7 @@ const Login = () => {
 
   const { user, loginUser } = useContext(authContext)
 
-  console.log(user)
+  // console.log(user)
 
   const handleLogin = event => {
     event.preventDefault();
