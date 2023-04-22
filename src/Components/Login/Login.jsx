@@ -18,6 +18,8 @@ const Login = () => {
     loginUser(email, password)
       .then((user) => { console.log(user) })
       .catch((err) => { console.log(err.message) });
+
+    form.reset()
   }
   return (
     <div>

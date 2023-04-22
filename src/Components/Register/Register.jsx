@@ -20,6 +20,8 @@ const Register = () => {
             .then(user => { console.log(user.user.email) })
             .catch(err => { console.log(err) });
 
+        form.reset()
+
     }
     return (
         <div>
